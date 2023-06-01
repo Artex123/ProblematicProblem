@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace ProblematicProblem
 {   
-    class Program
+    public class Program
     {
         
         static bool cont = true;
@@ -15,20 +15,19 @@ namespace ProblematicProblem
             Console.WriteLine("Hello, welcome to the random activity generator! \nWould you like to generate a random activity? yes/no: ");
             bool cont;
             var contResponse = Console.ReadLine().ToLower();
-            if(contResponse == "yes")
+            if (contResponse != "yes")
             {
-                cont = true;
+                Console.WriteLine("Bye you crazy character");
+                return;
             }
-            else
-            {
-                cont = false;
-            }
+            else cont = true;
 
             Console.WriteLine();
             Console.Write("We are going to need your information first! What is your name? ");
             string userName = Console.ReadLine();
             Console.WriteLine();
             Console.Write("What is your age? ");
+
             int userAge = int.Parse(Console.ReadLine());
             Console.WriteLine();
             Console.Write("Would you like to see the current list of activities? Sure/No thanks: ");
@@ -91,6 +90,7 @@ namespace ProblematicProblem
                 Console.Write($"Ah got it! {userName}, your random activity is: {randomActivity}! Is this ok or do you want to grab another activity? Keep/Redo: ");
                 Console.WriteLine();
                 cont = (Console.ReadLine().ToLower() == "redo") ? true : false;
+                
             }
         }
     }
